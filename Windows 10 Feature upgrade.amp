@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><Policy ID="0281c6b2-bf67-4910-8b85-d9183a8909d0" Name="Conscia - Windows 10 Feature upgrade V2" Description="Q29uc2NpYSAtIFdpbmRvd3MgMTAgRmVhdHVyZSB1cGdyYWRlIFYy" Version="2.16.0.1" MinRequiredVersion="2.16.0.1" RemoteCategory="0" ExecutionType="Local" MinimumPSVersionRequired="3.0">
+  <Object ID="{989b9725-d726-4979-b004-910bd88abce8}" Type="{B6FA6D8B-EEAA-47A6-8463-7F9A4F5BBB6E}" Data="&lt;xml&gt;&lt;Parameters&gt;&lt;Parameter ParameterName=&quot;HTTP_To_FeatureUpgrade&quot; Label=&quot;HTTP location to Feature Upgrade&quot; ParameterType=&quot;string&quot; Value=&quot;https://go.microsoft.com/fwlink/?LinkID=799445&quot; /&gt;&lt;Parameter ParameterName=&quot;OS_Version_Number&quot; Label=&quot;OS Version number&quot; ParameterType=&quot;string&quot; Value=&quot;10.0.19044&quot; /&gt;&lt;/Parameters&gt;&lt;/xml&gt;" />
+  <LinkManager xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/PolicyExecutor">
+    <hashset xmlns:d2p1="http://schemas.datacontract.org/2004/07/System" />
+  </LinkManager>
+  <Diagnostics OriginalVersion="2.18.3.1" />
+  <Activity mc:Ignorable="sads sap" x:Class="Policy Builder" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="clr-namespace:PolicyExecutor;assembly=PolicyExecutionEngine" xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <x:Members>
+      <x:Property Name="PolicyGUID" Type="InArgument(x:String)" />
+    </x:Members>
+    <sap:VirtualizedContainerService.HintSize>1132,2877</sap:VirtualizedContainerService.HintSize>
+    <mva:VisualBasic.Settings>Assembly references and imported namespaces serialized as XML namespaces</mva:VisualBasic.Settings>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <p:PolicySequence DisplayName="Policy Builder" sap:VirtualizedContainerService.HintSize="1132,2877" MinRequiredVersion="2.16.0.1" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces">
+      <p:PolicySequence.Activities>
+        <p:GetWindowsOSVersionAndBuild AssemblyName="PolicyExecutionEngine, Version=2.18.3.1, Culture=neutral, PublicKeyToken=null" DisplayName="Get Windows OS Version and Build" sap:VirtualizedContainerService.HintSize="1096,81" MinRequiredVersion="2.15.1.1" Moniker="f3e5d762-b5d9-4e5d-8e0a-03c7f262e3d4" OSArchitecture="[GetWindowsOSVersionAndBuild_OSArchitecture]" OSBuildNumber="[GetWindowsOSVersionAndBuild_OSBuildNumber]" OSName="[GetWindowsOSVersionAndBuild_OSName]" OSVersion="[GetWindowsOSVersionAndBuild_OSVersion]" OutPut_64="[GetWindowsOSVersionAndBuild_OutPut_64]" ReleaseID="[GetWindowsOSVersionAndBuild_ReleaseID]" Result="[GetWindowsOSVersionAndBuild_Result]" ResultString="[GetWindowsOSVersionAndBuild_ResultString]" Results_x64="[GetWindowsOSVersionAndBuild_Results_x64]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="Execute64bit" TypeName="GetWindowsOSVersionAndBuild" m_bTextLinkChange="False" />
+        <p:IfObject CaseSensitive_Item="{x:Null}" CaseSensitive_ItemProp="{x:Null}" Condition_Item="{x:Null}" Condition_ItemProp="{x:Null}" Value_Item="{x:Null}" Value_ItemProp="{x:Null}" Variable_Item="{x:Null}" Variable_ItemProp="{x:Null}" VerboseOutput_Item="{x:Null}" VerboseOutput_ItemProp="{x:Null}" AssemblyName="PolicyExecutionEngine, Version=2.18.3.1, Culture=neutral, PublicKeyToken=null" CaseSensitive="True" CaseSensitive_DisplayArg="false" Condition="does not equal" Condition_DisplayArg="does not equal" DisplayName="If" sap:VirtualizedContainerService.HintSize="1096,2533" MinRequiredVersion="2.16.0.1" Moniker="979254d9-a491-4372-b0ce-f6acf39e085b" Result="[IfObject_Result_1]" ResultString="[IfObject_ResultString_1]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="None" TypeName="IfObject" Value="[OS_Version_Number]" Value_DisplayArg="Input Parameters.OS Version number" Value_Type="x:String" Variable="[GetWindowsOSVersionAndBuild_OSVersion]" Variable_DisplayArg="Get Windows OS Version and Build.OS Version" Variable_Type="x:String" VerboseOutput="False" VerboseOutput_DisplayArg="" m_bTextLinkChange="False">
+          <p:IfObject.IfOption>
+            <p:SequenceActivity DisplayName="Then" sap:VirtualizedContainerService.HintSize="1064,2260" Name="SequenceActivity">
+              <p:SequenceActivity.Activities>
+                <p:RunPowerShellScript AssemblyName="PolicyExecutionEngine, Version=2.18.3.1, Culture=neutral, PublicKeyToken=null" DisplayName="Run PowerShell Script" sap:VirtualizedContainerService.HintSize="1026,348" MinRequiredVersion="2.10.0.19" Moniker="f6604b3c-c805-4672-bd9c-65ed030336f2" OutPut_64="[RunPowerShellScript_OutPut_64_1]" Result="[RunPowerShellScript_Result_1]" ResultString="[RunPowerShellScript_ResultString_1]" Results_x64="[RunPowerShellScript_Results_x64_1]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="ExecuteDebug" TypeName="RunPowerShellScript" genArgEvent="fe15ca99-0164-4d6c-8079-6a3e90dc0f21" m_bTextLinkChange="False" script="JABwAHIAbwBtAHAAdAAgAD0AIgBWAG8AbwByACAAdQB3ACAAYwBvAG0AcAB1AHQAZQByACAAaQBzACAAZQByACAAZABvAG8AcgAgAEMAbwBuAHMAYwBpAGEAIABOAGUAZABlAHIAbABhAG4AZAAgAEIALgBWAC4AIABlAGUAbgAgAHUAcABkAGEAdABlACAAbgBhAGEAcgAgAGQAZQAgAGwAYQBhAHQAcwB0AGUAIAB2AGUAcgBzAGkAZQAgAHYAYQBuACAAVwBpAG4AZABvAHcAcwAgADEAMAAgAGsAbABhAGEAcgBnAGUAegBlAHQALgAgAA0ACgANAAoAVwBpAGoAIAB2AHIAYQBnAGUAbgAgAHUAdwAgAHQAbwBlAHMAdABlAG0AbQBpAG4AZwAgAG8AbQAgAGQAZQAgAHUAcABkAGEAdABlACAAdQBpAHQAIAB0AGUAIAB2AG8AZQByAGUAbgAuACAAVABpAGoAZABlAG4AcwAgAGgAZQB0ACAAdQBpAHQAdgBvAGUAcgBlAG4AIAB2AGEAbgAgAGQAZQAgAHUAcABkAGEAdABlACAAawB1AG4AdAAgAHUAIAB1AHcAIABQAEMAIABiAGwAaQBqAHYAZQBuACAAZwBlAGIAcgB1AGkAawBlAG4AIABtAGUAdAAgAGgAZQB0ACAAdgByAGkAZQBuAGQAZQBsAGkAagBrAGUAIAB2AGUAcgB6AG8AZQBrACAAdQB3ACAAYwBvAG0AcAB1AHQAZQByACAAbgBpAGUAdAAgAHUAaQB0ACAAdABlACAAcwBjAGgAYQBrAGUAbABlAG4AIABvAGYAIABvAHAAbgBpAGUAdQB3ACAAbwBwACAAdABlACAAcwB0AGEAcgB0AGUAbgAuACAATQBvAGMAaAB0ACAAaABlAHQAIABlAGUAbgAgAGwAYQBwAHQAbwBwACAAYgBlAHQAcgBlAGYAZgBlAG4AIAB2AGUAcgB6AG8AZQBrAGUAbgAgAHcAaQBqACAAdQAgAG8AbQAgAGQAZQAgAG4AZQB0AHMAdAByAG8AbwBtAGEAZABhAHAAdABlAHIAIABhAGEAbgAgAHQAZQAgAHMAbAB1AGkAdABlAG4ALgAgAA0ACgANAAoATwBwACAAZQBlAG4AIABsAGEAdABlAHIAIABtAG8AbQBlAG4AdAAgAGgAZQBlAGYAdAAgAHUAIABkAGUAIABrAGUAdQB6AGUAIABvAG0AIABkAGUAIABjAG8AbQBwAHUAdABlAHIAIABvAHAAbgBpAGUAdQB3ACAAbwBwACAAdABlACAAcwB0AGEAcgB0AGUAbgAsACAAZABhAG4AIAB6AGEAbAAgAGQAZQAgAHUAcABnAHIAYQBkAGUAIAB2AGUAcgB3AGUAcgBrAHQAIAB3AG8AcgBkAGUAbgAuACAARABpAHQAIABrAGEAbgAgAHQAbwB0ACAAZQBlAG4AIAB1AHUAcgAgAGkAbgAgAGIAZQBzAGwAYQBnACAAbgBlAG0AZQBuAC4AIAANAAoADQAKAEIAZQBuAHQAIAB1ACAAZQByAG0AZQBlACAAYQBrAGsAbwBvAHIAZAAgAGQAYQB0ACAAZABlACAAaQBuAHMAdABhAGwAbABhAHQAaQBlACAAbwBwACAAZABlACAAYQBjAGgAdABlAHIAZwByAG8AbgBkACAAZwBlAHMAdABhAHIAdAAgAHcAbwByAGQAdAA/ACAAVAB3AGkAagBmAGUAbAB0ACAAdQAgAG8AdgBlAHIAIABkAGkAdAAgAGIAZQByAGkAYwBoAHQALAAgAG4AZQBlAG0AIABkAGEAbgAgAGMAbwBuAHQAYQBjAHQAIABvAHAAIABtAGUAdAAgAG8AbgB6AGUAIABzAGUAcgB2AGkAYwBlAGQAZQBzAGsAOgAgADAAOAA4ACAANQAyADIAIAA4ADkAIAAwADAADQAKACIA">
+                  <p:RunPowerShellScript.InArgs>
+                    <scg:Dictionary x:TypeArguments="x:String, p:InArg" />
+                  </p:RunPowerShellScript.InArgs>
+                  <p:RunPowerShellScript.OutArgs>
+                    <p:OutArg x:Key="prompt" ArgType="string" DisplayName="$prompt" Name="prompt">
+                      <p:OutArg.Arg>
+                        <OutArgument x:TypeArguments="x:String">[RunPowerShellScript_prompt]</OutArgument>
+                      </p:OutArg.Arg>
+                    </p:OutArg>
+                  </p:RunPowerShellScript.OutArgs>
+                </p:RunPowerShellScript>
+                <p:PromptUser Prompt_Item="{x:Null}" Prompt_ItemProp="{x:Null}" Title_Item="{x:Null}" Title_ItemProp="{x:Null}" Type_Item="{x:Null}" Type_ItemProp="{x:Null}" Wait_Item="{x:Null}" Wait_ItemProp="{x:Null}" AssemblyName="PolicyExecutionEngine, Version=2.18.3.1, Culture=neutral, PublicKeyToken=null" ClickResult="[PromptUser_ClickResult]" DisplayName="Prompt" sap:VirtualizedContainerService.HintSize="1026,196" MinRequiredVersion="2.10.0.19" Moniker="215892a4-9652-46be-9745-cf67717e68ad" Prompt="[RunPowerShellScript_prompt]" Prompt_DisplayArg="Run PowerShell Script.$prompt" Result="[PromptUser_Result]" ResultString="[PromptUser_ResultString]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="None" Title="Conscia: Windows 10 upgrade" Title_DisplayArg="Conscia: Windows 10 upgrade" Type="4" TypeName="PromptUser" Type_DisplayArg="Yes, No" Wait="300" Wait_DisplayArg="300" m_bTextLinkChange="False" />
+                <p:IfElse CaseSensitive_Item="{x:Null}" CaseSensitive_ItemProp="{x:Null}" Condition_Item="{x:Null}" Condition_ItemProp="{x:Null}" Value_Item="{x:Null}" Value_ItemProp="{x:Null}" Variable_Item="{x:Null}" Variable_ItemProp="{x:Null}" AssemblyName="PolicyExecutionEngine, Version=2.18.3.1, Culture=neutral, PublicKeyToken=null" CaseSensitive="False" CaseSensitive_DisplayArg="false" Condition="equals" Condition_DisplayArg="equals" DisplayName="If/Else" sap:VirtualizedContainerService.HintSize="1026,1486" MinRequiredVersion="2.16.0.1" Moniker="93548c78-4b29-44f3-80c7-27ad51160452" Result="[IfElse_Result]" ResultString="[IfElse_ResultString]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="None" TypeName="IfElse" Value_DisplayArg="YES" Value_Type="x:String" Variable="[PromptUser_ClickResult]" Variable_DisplayArg="Prompt.Click Result" Variable_Type="x:String" m_bTextLinkChange="False">
+                  <p:IfElse.ElseOption>
+                    <p:SequenceActivity DisplayName="Else" sap:VirtualizedContainerService.HintSize="397,238" Name="SequenceActivity">
+                      <p:SequenceActivity.Activities>
+                        <p:Log Message_Item="{x:Null}" Message_ItemProp="{x:Null}" AssemblyName="PolicyExecutionEngine, Version=2.18.3.1, Culture=neutral, PublicKeyToken=null" DisplayName="Log" sap:VirtualizedContainerService.HintSize="359,88" LogMessage="[Log_LogMessage]" Message="FAIL" Message_DisplayArg="FAIL" MinRequiredVersion="2.10.0.19" Moniker="2255fb06-bfe6-44a8-9776-39906c4e415a" Result="[Log_Result]" ResultString="[Log_ResultString]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="ExecuteDebug" TypeName="Log" m_bTextLinkChange="False" />
+                      </p:SequenceActivity.Activities>
+                      <p:SequenceActivity.Variables>
+                        <Variable x:TypeArguments="x:String" Name="Log_LogMessage" />
+                        <Variable x:TypeArguments="x:String" Name="Log_ResultString" />
+                        <Variable x:TypeArguments="x:Double" Name="Log_Result" />
+                      </p:SequenceActivity.Variables>
+                    </p:SequenceActivity>
+                  </p:IfElse.ElseOption>
+                  <p:IfElse.IfOption>
+                    <p:SequenceActivity DisplayName="Then" sap:VirtualizedContainerService.HintSize="585,1249" Name="SequenceActivity">
+                      <p:SequenceActivity.Activities>
+                        <p:GetAvailableDiskSpace Drive_Item="{x:Null}" Drive_ItemProp="{x:Null}" AssemblyName="PolicyExecutionEngine, Version=2.18.3.1, Culture=neutral, PublicKeyToken=null" DiskSpace="[GetAvailableDiskSpace_DiskSpace]" DisplayName="Get Available Disk Space (GB)" Drive="C:" Drive_DisplayArg="C:" FreeDiskSpace="[GetAvailableDiskSpace_FreeDiskSpace]" sap:VirtualizedContainerService.HintSize="547,88" MinRequiredVersion="2.17.0.1" Moniker="482fa91b-48f4-4bd8-8119-1e01b1080f70" Result="[GetAvailableDiskSpace_Result]" ResultString="[GetAvailableDiskSpace_ResultString]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="ExecuteDebug" TotalDiskSpace="[GetAvailableDiskSpace_TotalDiskSpace]" TypeName="GetAvailableDiskSpace" m_bTextLinkChange="False" />
+                        <p:IfObject CaseSensitive_Item="{x:Null}" CaseSensitive_ItemProp="{x:Null}" Condition_Item="{x:Null}" Condition_ItemProp="{x:Null}" Value_Item="{x:Null}" Value_ItemProp="{x:Null}" Variable_Item="{x:Null}" Variable_ItemProp="{x:Null}" VerboseOutput_Item="{x:Null}" VerboseOutput_ItemProp="{x:Null}" AssemblyName="PolicyExecutionEngine, Version=2.18.3.1, Culture=neutral, PublicKeyToken=null" CaseSensitive="True" CaseSensitive_DisplayArg="false" Condition="greater than" Condition_DisplayArg="greater than" DisplayName="If" sap:VirtualizedContainerService.HintSize="547,583" MinRequiredVersion="2.16.0.1" Moniker="83b5373d-cb2a-4168-b881-2da509148cf7" Result="[IfObject_Result]" ResultString="[IfObject_ResultString]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="None" TypeName="IfObject" Value_DisplayArg="25" Value_Type="x:Double" Variable="[GetAvailableDiskSpace_DiskSpace]" Variable_DisplayArg="Get Available Disk Space (GB).Disk space" Variable_Type="x:Double" VerboseOutput="False" VerboseOutput_DisplayArg="" m_bTextLinkChange="False">
+                          <p:IfObject.IfOption>
+                            <p:SequenceActivity DisplayName="Then" sap:VirtualizedContainerService.HintSize="515,310" Name="SequenceActivity">
+                              <p:SequenceActivity.Activities>
+                                <p:DownloadFileFromURL OverwriteExistingFile_Item="{x:Null}" OverwriteExistingFile_ItemProp="{x:Null}" RemoteFileURL_Item="{x:Null}" RemoteFileURL_ItemProp="{x:Null}" SaveAsFileName_Item="{x:Null}" SaveAsFileName_ItemProp="{x:Null}" AssemblyName="PolicyExecutionEngine, Version=2.18.3.1, Culture=neutral, PublicKeyToken=null" DisplayName="Download File From URL" sap:VirtualizedContainerService.HintSize="477,160" MinRequiredVersion="2.18.0.1" Moniker="b1918620-95fd-4833-9cff-8cc58171ebb2" OverwriteExistingFile="True" OverwriteExistingFile_DisplayArg="true" RemoteFileURL="[HTTP_To_FeatureUpgrade]" RemoteFileURL_DisplayArg="Input Parameters.HTTP location to Feature Upgrade" Result="[DownloadFileFromURL_Result]" ResultString="[DownloadFileFromURL_ResultString]" RunAsCurrentLoggedOnUser="False" SaveAsFileName="C:\Temp\W10FU.exe" SaveAsFileName_DisplayArg="C:\Temp\W10FU.exe" ScriptExecutionMethod="None" TypeName="DownloadFileFromURL" m_bTextLinkChange="False" />
+                              </p:SequenceActivity.Activities>
+                              <p:SequenceActivity.Variables>
+                                <Variable x:TypeArguments="x:String" Name="DownloadFileFromURL_ResultString" />
+                                <Variable x:TypeArguments="x:Double" Name="DownloadFileFromURL_Result" />
+                              </p:SequenceActivity.Variables>
+                            </p:SequenceActivity>
+                          </p:IfObject.IfOption>
+                          <p:IfObject.Value>
+                            <InArgument x:TypeArguments="x:Object">
+                              <p:ObjectLiteral>
+                                <p:ObjectLiteral.Value>
+                                  <x:Double>25</x:Double>
+                                </p:ObjectLiteral.Value>
+                              </p:ObjectLiteral>
+                            </InArgument>
+                          </p:IfObject.Value>
+                        </p:IfObject>
+                        <p:RunPowerShellScript genArgEvent="{x:Null}" AssemblyName="PolicyExecutionEngine, Version=2.18.3.1, Culture=neutral, PublicKeyToken=null" DisplayName="Run PowerShell Script" sap:VirtualizedContainerService.HintSize="547,348" MinRequiredVersion="2.10.0.19" Moniker="5f324252-36a1-471b-be9f-d3fadc4cc610" OutPut_64="[RunPowerShellScript_OutPut_64]" Result="[RunPowerShellScript_Result]" ResultString="[RunPowerShellScript_ResultString]" Results_x64="[RunPowerShellScript_Results_x64]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="ExecuteDebug" TypeName="RunPowerShellScript" m_bTextLinkChange="False" script="QwA6AFwAVABlAG0AcABcAFcAMQAwAEYAVQAuAGUAeABlACAALwBzAGsAaQBwAGUAdQBsAGEAIAAvAGEAdQB0AG8AIAB1AHAAZwByAGEAZABlACAALwBxAHUAaQBlAHQAIAAvAG4AbwByAGUAYgBvAG8AdAA=">
+                          <p:RunPowerShellScript.InArgs>
+                            <scg:Dictionary x:TypeArguments="x:String, p:InArg" />
+                          </p:RunPowerShellScript.InArgs>
+                          <p:RunPowerShellScript.OutArgs>
+                            <scg:Dictionary x:TypeArguments="x:String, p:OutArg" />
+                          </p:RunPowerShellScript.OutArgs>
+                        </p:RunPowerShellScript>
+                      </p:SequenceActivity.Activities>
+                      <p:SequenceActivity.Variables>
+                        <Variable x:TypeArguments="x:Double" Name="GetAvailableDiskSpace_DiskSpace" />
+                        <Variable x:TypeArguments="x:String" Name="GetAvailableDiskSpace_FreeDiskSpace" />
+                        <Variable x:TypeArguments="x:Double" Name="GetAvailableDiskSpace_Result" />
+                        <Variable x:TypeArguments="x:String" Name="GetAvailableDiskSpace_ResultString" />
+                        <Variable x:TypeArguments="x:Double" Name="GetAvailableDiskSpace_TotalDiskSpace" />
+                        <Variable x:TypeArguments="x:Double" Name="IfObject_Result" />
+                        <Variable x:TypeArguments="x:String" Name="IfObject_ResultString" />
+                        <Variable x:TypeArguments="x:String" Name="RunPowerShellScript_OutPut_64" />
+                        <Variable x:TypeArguments="x:Double" Name="RunPowerShellScript_Result" />
+                        <Variable x:TypeArguments="x:String" Name="RunPowerShellScript_ResultString" />
+                        <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="RunPowerShellScript_Results_x64" />
+                      </p:SequenceActivity.Variables>
+                    </p:SequenceActivity>
+                  </p:IfElse.IfOption>
+                  <p:IfElse.Value>
+                    <InArgument x:TypeArguments="x:Object">
+                      <p:ObjectLiteral Value="YES" />
+                    </InArgument>
+                  </p:IfElse.Value>
+                </p:IfElse>
+              </p:SequenceActivity.Activities>
+              <p:SequenceActivity.Variables>
+                <Variable x:TypeArguments="x:Double" Name="IfElse_Result" />
+                <Variable x:TypeArguments="x:String" Name="IfElse_ResultString" />
+                <Variable x:TypeArguments="x:String" Name="PromptUser_ClickResult" />
+                <Variable x:TypeArguments="x:Double" Name="PromptUser_Result" />
+                <Variable x:TypeArguments="x:String" Name="PromptUser_ResultString" />
+                <Variable x:TypeArguments="x:String" Name="RunPowerShellScript_OutPut_64_1" />
+                <Variable x:TypeArguments="x:Double" Name="RunPowerShellScript_Result_1" />
+                <Variable x:TypeArguments="x:String" Name="RunPowerShellScript_ResultString_1" />
+                <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="RunPowerShellScript_Results_x64_1" />
+                <Variable x:TypeArguments="x:String" Name="RunPowerShellScript_prompt" />
+              </p:SequenceActivity.Variables>
+            </p:SequenceActivity>
+          </p:IfObject.IfOption>
+        </p:IfObject>
+      </p:PolicySequence.Activities>
+      <p:PolicySequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="GetWindowsOSVersionAndBuild_OSName" />
+        <Variable x:TypeArguments="x:String" Name="GetWindowsOSVersionAndBuild_OSBuildNumber" />
+        <Variable x:TypeArguments="x:String" Name="GetWindowsOSVersionAndBuild_OSArchitecture" />
+        <Variable x:TypeArguments="x:String" Name="GetWindowsOSVersionAndBuild_OSVersion" />
+        <Variable x:TypeArguments="x:String" Name="GetWindowsOSVersionAndBuild_ReleaseID" />
+        <Variable x:TypeArguments="x:String" Name="GetWindowsOSVersionAndBuild_OutPut_64" />
+        <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="GetWindowsOSVersionAndBuild_Results_x64" />
+        <Variable x:TypeArguments="x:String" Name="GetWindowsOSVersionAndBuild_ResultString" />
+        <Variable x:TypeArguments="x:Double" Name="GetWindowsOSVersionAndBuild_Result" />
+        <Variable x:TypeArguments="x:Double" Name="IfObject_Result_1" />
+        <Variable x:TypeArguments="x:String" Name="IfObject_ResultString_1" />
+        <Variable x:TypeArguments="x:String" Default="https://go.microsoft.com/fwlink/?LinkID=799445" Name="HTTP_To_FeatureUpgrade" />
+        <Variable x:TypeArguments="x:String" Default="10.0.19045" Name="OS_Version_Number" />
+      </p:PolicySequence.Variables>
+    </p:PolicySequence>
+  </Activity>
+</Policy>
